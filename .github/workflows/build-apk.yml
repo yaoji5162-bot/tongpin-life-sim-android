@@ -12,6 +12,17 @@ jobs:
         with:
           distribution: temurin
           java-version: '17'
+      - name: Restore persistent test signing key
+        uses: actions/cache@v4
+        with:
+          path: ci/aevum.keystore
+          key: aevum-signing-key-v1
+      - name: Create test signing key if needed
+        run: |
+          mkdir -p ci
+          if [ ! -f ci/aevum.keystore ]; then
+            keytool -genkeypair -v -keystore ci/aevum.keystore -storepass aevumtest -alias aevum -keypass aevumtest -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Aevum Debug, OU=Development, O=Aevum, L=Taihe, ST=Anhui, C=CN"
+          fi
       - name: Install Android SDK packages
         run: |
           yes | "${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager" --licenses || true
@@ -23,5 +34,5 @@ jobs:
         run: gradle assembleDebug
       - uses: actions/upload-artifact@v4
         with:
-          name: tongpin-life-sim-debug-apk
+          name: aevum-android-apk
           path: app/build/outputs/apk/debug/app-debug.apk
