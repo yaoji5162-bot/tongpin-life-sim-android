@@ -23,15 +23,18 @@ jobs:
           if [ ! -f ci/aevum.keystore ]; then
             keytool -genkeypair -v -keystore ci/aevum.keystore -storepass aevumtest -alias aevum -keypass aevumtest -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Aevum Debug, OU=Development, O=Aevum, L=Taihe, ST=Anhui, C=CN"
           fi
-      - name: Render polished Aevum icon into Android launcher assets
+      - name: Install image tools
         run: |
           sudo apt-get update
-          sudo apt-get install -y librsvg2-bin
+          sudo apt-get install -y imagemagick
+      - name: Install the approved original Aevum icon
+        run: |
+          base64 --decode app/src/main/assets/aevum-original-icon.png.b64 > /tmp/aevum-original.png
           for spec in "mdpi:48" "hdpi:72" "xhdpi:96" "xxhdpi:144" "xxxhdpi:192"; do
             density="${spec%%:*}"
             size="${spec##*:}"
             mkdir -p "app/src/main/res/mipmap-${density}"
-            rsvg-convert -w "${size}" -h "${size}" app/src/main/assets/aevum-icon.svg -o "app/src/main/res/mipmap-${density}/ic_launcher.png"
+            convert /tmp/aevum-original.png -resize "${size}x${size}" "app/src/main/res/mipmap-${density}/ic_launcher.png"
           done
       - name: Install Android SDK packages
         run: |
