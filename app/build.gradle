@@ -3,6 +3,19 @@ plugins { id 'com.android.application' }
 android {
     namespace 'com.example.tongpin'
     compileSdk 35
+    signingConfigs {
+        debug {
+            storeFile file("../ci/aevum.keystore")
+            storePassword "aevumtest"
+            keyAlias "aevum"
+            keyPassword "aevumtest"
+        }
+    }
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+        }
+    }
     defaultConfig {
         applicationId 'com.example.tongpin'
         minSdk 23
