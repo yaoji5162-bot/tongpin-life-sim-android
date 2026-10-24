@@ -1,0 +1,23 @@
+plugins { id 'com.android.application' }
+
+android {
+    namespace 'com.example.tongpin'
+    compileSdk 35
+    defaultConfig {
+        applicationId 'com.example.tongpin'
+        minSdk 23
+        targetSdk 35
+        // GitHub run_number already exceeds the old versionCode (2) and only increases.
+        versionCode Integer.parseInt(System.getenv('AEVUM_VERSION_CODE') ?: '100')
+        versionName '0.9.0'
+    }
+    signingConfigs {
+        debug {
+            storeFile file('../ci/aevum.keystore')
+            storePassword System.getenv('AEVUM_STORE_PASSWORD') ?: 'aevumtest'
+            keyAlias System.getenv('AEVUM_KEY_ALIAS') ?: 'aevum'
+            keyPassword System.getenv('AEVUM_KEY_PASSWORD') ?: 'aevumtest'
+        }
+    }
+    buildTypes { debug { signingConfig signingConfigs.debug } }
+}

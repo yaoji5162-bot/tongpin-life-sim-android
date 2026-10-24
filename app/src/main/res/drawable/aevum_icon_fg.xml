@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Fine orbital guide, kept small inside Android's adaptive-icon safe zone -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#AEB9D0"
+        android:strokeAlpha="0.62"
+        android:strokeWidth="0.65"
+        android:pathData="M54,32 A22,22 0,1 1,54 76 A22,22 0,1 1,54 32"/>
+
+    <!-- Silver-blue crescent edge with a soft layered metallic impression -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#667895"
+        android:strokeAlpha="0.50"
+        android:strokeWidth="4.2"
+        android:strokeLineCap="round"
+        android:pathData="M54,32 A22,22 0,0 0,54 76"/>
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#9EACC7"
+        android:strokeAlpha="0.82"
+        android:strokeWidth="2.8"
+        android:strokeLineCap="round"
+        android:pathData="M54,32 A22,22 0,0 0,54 76"/>
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#E0E6F2"
+        android:strokeAlpha="0.76"
+        android:strokeWidth="1.0"
+        android:strokeLineCap="round"
+        android:pathData="M54,32.5 A21.5,21.5 0,0 0,54 75.5"/>
+
+    <!-- Hairline axis and its tiny endpoints -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#C9D3E6"
+        android:strokeAlpha="0.72"
+        android:strokeWidth="0.55"
+        android:pathData="M54,22 L54,86"/>
+    <path android:fillColor="#E7ECF6" android:pathData="M54,20.2 A1,1 0,1 0,54 22.2 A1,1 0,1 0,54 20.2 Z"/>
+    <path android:fillColor="#D4DDED" android:fillAlpha="0.86" android:pathData="M54,84.7 A1,1 0,1 0,54 86.7 A1,1 0,1 0,54 84.7 Z"/>
+
+    <!-- Small orbital pearl -->
+    <path android:fillColor="#DDE4F2" android:pathData="M75.2,53 A1.8,1.8 0,1 0,75.2 56.6 A1.8,1.8 0,1 0,75.2 53 Z"/>
+
+    <!-- Central four-point star -->
+    <path
+        android:fillColor="#F0F3FA"
+        android:pathData="M54,43.8 C55.7,50.8 57.2,52.3 64.2,54 C57.2,55.7 55.7,57.2 54,64.2 C52.3,57.2 50.8,55.7 43.8,54 C50.8,52.3 52.3,50.8 54,43.8 Z"/>
+</vector>
+
